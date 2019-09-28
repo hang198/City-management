@@ -10,6 +10,35 @@
             <a class="btn btn-outline-primary" href="" data-toggle="modal" data-target="#cityModal">
                 Lọc
             </a>
+            <div class="col-6">
+
+                <form class="navbar-form navbar-left" action="{{ route('customers.search') }}">
+
+                    @csrf
+
+                    <div class="row">
+
+                        <div class="col-8">
+
+                            <div class="form-group">
+
+                                <input type="text" name="keyword" class="form-control" placeholder="Search">
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-4">
+
+                            <button type="submit" class="btn btn-default">Tìm kiếm</button>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
             <div class="col-12">
                 @if (Session::has('success'))
                     <p class="text-success">
@@ -30,6 +59,7 @@
                         </div>
                     @endif
             </div>
+            {{ $customers->links() }}
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -67,6 +97,7 @@
                 </tbody>
             </table>
             <a class="btn btn-primary" href="{{ route('customers.create') }}">Thêm mới</a>
+
         </div>
         <!-- Modal -->
         <div class="modal fade" id="cityModal" role="dialog">

@@ -31,4 +31,5 @@ Route::group(['prefix' => 'customers'],function () {
     Route::get('/edit/{id}','CustomerController@edit')->name('customers.edit');
     Route::post('/edit/{id}','CustomerController@update')->name('customers.update');
     Route::get('/filter','CustomerController@filterByCity')->name('customers.filterByCity');
+    Route::get('/search','CustomerController@search')->name('customers.search');
 });
